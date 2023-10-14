@@ -32,10 +32,6 @@ export const Form = ({ navigation }) => {
           value={goalTheme}
         />
         <Button title="Отправить" onPress={handleSubmit} />
-        <Button
-          title="Go to View"
-          onPress={() => navigation.navigate("HomeView")}
-        />
       </View>
     </SafeAreaView>
   );

@@ -1,41 +1,25 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Form } from "./src/components/Form";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 function HomeView({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Home View</Text>
-      <Button title="Go to Form" onPress={() => navigation.navigate("Form")} />
     </View>
   );
 }
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      {
-        <Stack.Navigator initialRouteName="HomeView">
-          <Stack.Screen name="Form" component={Form} />
-          <Stack.Screen name="HomeView" component={HomeView} />
-        </Stack.Navigator>
-        // <View style={styles.container}>
-        //   <Text>Добавьте цель</Text>
-        //   <Form />
-        // </View>
-      }
+      <Tab.Navigator>
+        <Tab.Screen name="Form" component={Form} />
+        <Tab.Screen name="HomeView" component={HomeView} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
